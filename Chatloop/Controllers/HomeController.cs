@@ -15,6 +15,23 @@ namespace Chatloop.Controllers
             return View();
         }
 
+        public IActionResult ReminderManagment()
+        {
+            //IList<Reminder> reminders = new List<Reminder>();
+            Reminder reminder = new Reminder();
+            
+            return View(reminder);
+        }
+
+        [HttpPost]
+        public IActionResult ReminderManagment(Reminder reminder)
+        {
+            IList<Reminder> reminders = new List<Reminder>();
+            reminders.Add(reminder);
+            
+            return View(reminder);
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
@@ -37,7 +54,8 @@ namespace Chatloop.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new Reminder { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            ErrorViewModel errorViewModel = new ErrorViewModel();
+            return View(errorViewModel);
         }
     }
 }
