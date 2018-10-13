@@ -5,35 +5,46 @@
 }
 
 <h2>ReminderManagment</h2>
+https://cdn.jsdelivr.net/npm/timepicker@1.11.12/jquery.timepicker.min.js
 
 
 
 
-
-<form asp-controller="home" asp-action="ReminderManagment" >
+<form asp-controller="home" asp-action="ReminderManagment" type="post">
   <div class="form-row align-items-center">
     
     <div class="col-auto my-1">
       <div class="custom-control custom-checkbox mr-sm-2">
         <input type="checkbox" class="custom-control-input" asp-for="RemindOnMonday" >
-        <label class="custom-control-label" for="customControlAutosizing">Monday</label>
+        <label class="custom-control-label" asp-for="RemindOnMonday">Monday</label>
       </div>
         <div class="custom-control custom-checkbox mr-sm-2">
         <input type="checkbox" class="custom-control-input" asp-for="RemindOnTuesday" >
-        <label class="custom-control-label" for="customControlAutosizing">Tuesday</label>
+        <label class="custom-control-label" asp-for="RemindOnTuesday">Tuesday</label>
       </div>
         <div class="custom-control custom-checkbox mr-sm-2">
-        <input type="checkbox" class="custom-control-input" asp-for="RemindOnWednesday" id="customControlAutosizing">
-        <label class="custom-control-label" for="customControlAutosizing">Wednesday</label>
+        <input type="checkbox" class="custom-control-input" asp-for="RemindOnWednesday" >
+        <label class="custom-control-label" asp-for="RemindOnWednesday">Wednesday</label>
       </div>
         <div class="custom-control custom-checkbox mr-sm-2">
-        <input type="checkbox" class="custom-control-input" asp-for="RemindOnThursday" id="customControlAutosizing">
-        <label class="custom-control-label" for="customControlAutosizing">Thursday</label>
+        <input type="checkbox" class="custom-control-input" asp-for="RemindOnThursday" >
+        <label class="custom-control-label" asp-for="RemindOnThursday">Thursday</label>
       </div>
         <div class="custom-control custom-checkbox mr-sm-2">
-        <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-        <label class="custom-control-label" for="customControlAutosizing">Friday</label>
+        <input type="checkbox" class="custom-control-input" asp-for="RemindOnFriday">
+        <label class="custom-control-label" asp-for="RemindOnFriday">Friday</label>
       </div>
+        <div class="custom-control custom-checkbox mr-sm-2">
+        <input type="checkbox" class="custom-control-input"asp-for="RemindOnSaturday">
+        <label class="custom-control-label" asp-for="RemindOnSaturday">Saturday</label>
+      </div>
+        <div class="custom-control custom-checkbox mr-sm-2">
+        <input type="checkbox" class="custom-control-input" asp-for="RemindOnSunday">
+        <label class="custom-control-label" asp-for="RemindOnSunday">Sunday</label>
+      </div>
+        
+
+
     </div>
     <div class="col-auto my-1">
       <button type="submit" class="btn btn-primary">Submit</button>

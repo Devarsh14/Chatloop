@@ -16,6 +16,8 @@ namespace Chatloop.Models
         public DateTime RemindOnFridayTime  { get; set; }
         public bool RemindOnSaturday  { get; set; }
         public DateTime RemindOnSaturdayTime  { get; set; }
+        public bool RemindOnSunday { get; set; }
+        public DateTime RemindOnSundayTime { get; set; }
 
     }
 }
