@@ -5,13 +5,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Chatloop.Models;
+using Chatloop.IDataServices;
+using Chatloop.Services;
 
 namespace Chatloop.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IReminderManagment reminderManagment;
+        private readonly ISendGrid sendGrid;
+        public HomeController(IReminderManagment reminderManagment,ISendGrid sendGrid)
         {
+            this.reminderManagment = reminderManagment;
+            this.sendGrid = sendGrid;
+        }
+        public IActionResult Index()
+
+        {
+           sendGrid.Execute().Wait();
             return View();
         }
 
@@ -26,11 +37,18 @@ namespace Chatloop.Controllers
         [HttpPost]
         public IActionResult ReminderManagment(Reminder reminder)
         {
-            IList<Reminder> reminders = new List<Reminder>();
-            reminders.Add(reminder);
+            this.reminderManagment.RemindersMangementList(reminder);
+            
+
             
             return View(reminder);
         }
+
+
+        
+
+
+
 
         public IActionResult About()
         {

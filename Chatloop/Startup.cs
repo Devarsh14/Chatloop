@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Chatloop.IDataServices;
+using Chatloop.Services;
 
 namespace Chatloop
 {
@@ -33,6 +35,11 @@ namespace Chatloop
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSingleton<IReminderManagment, ReminderManagement>();
+
+            //send Grid service
+            services.AddSingleton<ISendGrid, SmsSendGrid>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
